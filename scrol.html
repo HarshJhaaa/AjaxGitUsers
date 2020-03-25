@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+            function yhandler (){
+                var wrap = document.getElementById('wrap');
+                var contentHeight = wrap.offsetHeight;//gets page content height
+                var yOffset = window.pageYOffset;//gets the vertica scroll positionn
+                var y = yOffset + window.innerHeight;
+                if(y>= contentHeight){
+                    wrap.innerHTML += '<div class ="newData"></div>';
+                    //AJAX call
+                }
+                var status = document.getElementById('status');
+                status.innerHTML = contentHeight+"|"+y;
+    
+            }
+            window.onscroll = yhandler
+            </script>
+    <style>
+        #wrap{
+          width: 800px;
+          margin: 0px auto;
+          background: greenyellow;
+        }
+         .newData{
+             height: 800px;
+             background: blue;
+             margin: 10px 0px;
+         }
+    </style>
+</head>
+<body>
+    
+    <div id="status">0|0</div>
+    <div id="wrap">
+        <img src="https://www.lastwordonnothing.com/wp-content/uploads/2012/10/800px-Eichh%C3%B6rnchen_D%C3%BCsseldorf_Hofgarten_Crisco_edit2.jpg" alt="">
+    </div>
+
+
+    
+</body>
+</html>
